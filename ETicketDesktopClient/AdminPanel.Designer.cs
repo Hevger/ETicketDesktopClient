@@ -28,13 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.eventBt = new System.Windows.Forms.Button();
+            this.orderBt = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // eventBt
+            // 
+            this.eventBt.Location = new System.Drawing.Point(31, 34);
+            this.eventBt.Name = "eventBt";
+            this.eventBt.Size = new System.Drawing.Size(283, 112);
+            this.eventBt.TabIndex = 0;
+            this.eventBt.Text = "Events";
+            this.eventBt.UseVisualStyleBackColor = true;
+            // 
+            // orderBt
+            // 
+            this.orderBt.Location = new System.Drawing.Point(479, 34);
+            this.orderBt.Name = "orderBt";
+            this.orderBt.Size = new System.Drawing.Size(283, 112);
+            this.orderBt.TabIndex = 1;
+            this.orderBt.Text = "Orders";
+            this.orderBt.UseVisualStyleBackColor = true;
             // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.orderBt);
+            this.Controls.Add(this.eventBt);
             this.Name = "AdminPanel";
             this.Text = "ETicket - Admin Panel";
             this.ResumeLayout(false);
@@ -42,5 +64,8 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Button eventBt;
+        private System.Windows.Forms.Button orderBt;
     }
 }

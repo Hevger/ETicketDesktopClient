@@ -31,6 +31,8 @@
             this.usernameTb = new System.Windows.Forms.TextBox();
             this.passwordTb = new System.Windows.Forms.TextBox();
             this.loginBt = new System.Windows.Forms.Button();
+            this.usernameLb = new System.Windows.Forms.Label();
+            this.passwordLb = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // usernameTb
@@ -57,15 +59,35 @@
             this.loginBt.Name = "loginBt";
             this.loginBt.Size = new System.Drawing.Size(266, 107);
             this.loginBt.TabIndex = 2;
-            this.loginBt.Text = "Login ya bitch";
+            this.loginBt.Text = "Login";
             this.loginBt.UseVisualStyleBackColor = true;
             this.loginBt.Click += new System.EventHandler(this.loginBt_Click);
+            // 
+            // usernameLb
+            // 
+            this.usernameLb.AutoSize = true;
+            this.usernameLb.Location = new System.Drawing.Point(155, 108);
+            this.usernameLb.Name = "usernameLb";
+            this.usernameLb.Size = new System.Drawing.Size(55, 13);
+            this.usernameLb.TabIndex = 3;
+            this.usernameLb.Text = "Username";
+            // 
+            // passwordLb
+            // 
+            this.passwordLb.AutoSize = true;
+            this.passwordLb.Location = new System.Drawing.Point(155, 169);
+            this.passwordLb.Name = "passwordLb";
+            this.passwordLb.Size = new System.Drawing.Size(53, 13);
+            this.passwordLb.TabIndex = 4;
+            this.passwordLb.Text = "Password";
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.passwordLb);
+            this.Controls.Add(this.usernameLb);
             this.Controls.Add(this.loginBt);
             this.Controls.Add(this.passwordTb);
             this.Controls.Add(this.usernameTb);
@@ -82,6 +104,8 @@
         private System.Windows.Forms.TextBox usernameTb;
         private System.Windows.Forms.TextBox passwordTb;
         private System.Windows.Forms.Button loginBt;
+        private System.Windows.Forms.Label usernameLb;
+        private System.Windows.Forms.Label passwordLb;
     }
 }
 

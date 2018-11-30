@@ -15,7 +15,6 @@ namespace ETicketDesktopClient
     public partial class MainWindow : Form
     {
         Thread thread;
-        ETicketServiceClient.AdminServiceClient adminClient = new ETicketServiceClient.AdminServiceClient();
         public MainWindow()
         {
             InitializeComponent();
@@ -30,29 +29,35 @@ namespace ETicketDesktopClient
 
         public bool Login()
         {
-            string Username = usernameTb.Text;
-            string Password = passwordTb.Text;
-            if (adminClient.GetAdminInfo(Username) != null)
+            using (ETicketServiceClient.AdminServiceClient adminClient = new ETicketServiceClient.AdminServiceClient())
             {
-                ETicketServiceClient.AdminInfo adminInfo = adminClient.GetAdminInfo(Username);
-                string passwordhashed = adminInfo.Password;
-                string username = adminInfo.Username;
+                adminClient.ClientCredentials.UserName.UserName = "ETicket";
+                adminClient.ClientCredentials.UserName.Password = "ETicketPass";
 
-                PasswordHasher hasher = new PasswordHasher();
-                if (hasher.VerifyHashedPassword(passwordhashed, Password) != PasswordVerificationResult.Failed)
+                string Username = usernameTb.Text;
+                string Password = passwordTb.Text;
+                if (adminClient.GetAdminInfo(Username) != null)
                 {
-                    return true;
+                    ETicketServiceClient.AdminInfo adminInfo = adminClient.GetAdminInfo(Username);
+                    string passwordhashed = adminInfo.Password;
+                    string username = adminInfo.Username;
+
+                    PasswordHasher hasher = new PasswordHasher();
+                    if (hasher.VerifyHashedPassword(passwordhashed, Password) != PasswordVerificationResult.Failed)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                    //return hasher.HashPassword("User1234!");
                 }
                 else
                 {
                     return false;
                 }
-
-                //return hasher.HashPassword("User1234!");
-            }
-            else
-            {
-                return false;
             }
         }
 

@@ -857,6 +857,12 @@ namespace ETicketDesktopClient.ETicketServiceClient {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/GetOrderTickets", ReplyAction="http://tempuri.org/IOrderService/GetOrderTicketsResponse")]
         System.Threading.Tasks.Task<ETicketDesktopClient.ETicketServiceClient.Ticket[]> GetOrderTicketsAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/GetCustomerOrdersByUsername", ReplyAction="http://tempuri.org/IOrderService/GetCustomerOrdersByUsernameResponse")]
+        ETicketDesktopClient.ETicketServiceClient.Order[] GetCustomerOrdersByUsername(string Username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/GetCustomerOrdersByUsername", ReplyAction="http://tempuri.org/IOrderService/GetCustomerOrdersByUsernameResponse")]
+        System.Threading.Tasks.Task<ETicketDesktopClient.ETicketServiceClient.Order[]> GetCustomerOrdersByUsernameAsync(string Username);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/Cancel", ReplyAction="http://tempuri.org/IOrderService/CancelResponse")]
         void Cancel(ETicketDesktopClient.ETicketServiceClient.Order order);
         
@@ -945,6 +951,14 @@ namespace ETicketDesktopClient.ETicketServiceClient {
         
         public System.Threading.Tasks.Task<ETicketDesktopClient.ETicketServiceClient.Ticket[]> GetOrderTicketsAsync(int id) {
             return base.Channel.GetOrderTicketsAsync(id);
+        }
+        
+        public ETicketDesktopClient.ETicketServiceClient.Order[] GetCustomerOrdersByUsername(string Username) {
+            return base.Channel.GetCustomerOrdersByUsername(Username);
+        }
+        
+        public System.Threading.Tasks.Task<ETicketDesktopClient.ETicketServiceClient.Order[]> GetCustomerOrdersByUsernameAsync(string Username) {
+            return base.Channel.GetCustomerOrdersByUsernameAsync(Username);
         }
         
         public void Cancel(ETicketDesktopClient.ETicketServiceClient.Order order) {

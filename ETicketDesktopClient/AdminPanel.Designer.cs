@@ -49,6 +49,7 @@
             this.orderBt.TabIndex = 1;
             this.orderBt.Text = "Orders";
             this.orderBt.UseVisualStyleBackColor = true;
+            this.orderBt.Click += new System.EventHandler(this.orderBt_Click);
             // 
             // AdminPanel
             // 

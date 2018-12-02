@@ -31,6 +31,7 @@ namespace ETicketDesktopClient
         {
             using (ETicketServiceClient.AdminServiceClient adminClient = new ETicketServiceClient.AdminServiceClient())
             {
+
                 adminClient.ClientCredentials.UserName.UserName = "ETicket";
                 adminClient.ClientCredentials.UserName.Password = "ETicketPass";
 

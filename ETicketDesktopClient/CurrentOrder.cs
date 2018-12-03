@@ -12,9 +12,12 @@ namespace ETicketDesktopClient
 {
     public partial class CurrentOrder : Form
     {
-        public CurrentOrder()
+        int orderId;
+        public CurrentOrder(int orderId)
         {
+            this.orderId = orderId;
             InitializeComponent();
+            label1.Text = this.orderId.ToString();
         }
     }
 }

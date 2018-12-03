@@ -54,19 +54,21 @@ namespace ETicketDesktopClient
         private void ordersGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string orderId = ordersGrid.Rows[e.RowIndex].Cells[3].Value.ToString();
-            if (string.IsNullOrEmpty(orderId))
+            if (!string.IsNullOrEmpty(orderId))
             {
                 int id = Convert.ToInt32(orderId);
-                this.Close();
-                thread = new Thread(OpenNewWindow);
-                thread.SetApartmentState(ApartmentState.STA);
-                thread.Start();
+                //this.Close();
+                //thread = new Thread(OpenNewWindow(null, id));
+                //thread.SetApartmentState(ApartmentState.STA);
+                //thread.Start();
+                CurrentOrder co = new CurrentOrder(id);
+                co.ShowDialog();
             }
         }
 
-        private void OpenNewWindow(object obj)
-        {
-            Application.Run(new CurrentOrder());
-        }
+        //private void OpenNewWindow(object obj, int id)
+        //{
+        //    Application.Run(new CurrentOrder(id));
+        //}
     }
 }

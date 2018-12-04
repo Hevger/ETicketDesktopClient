@@ -34,16 +34,17 @@
             // 
             // eventBt
             // 
-            this.eventBt.Location = new System.Drawing.Point(31, 34);
+            this.eventBt.Location = new System.Drawing.Point(264, 84);
             this.eventBt.Name = "eventBt";
             this.eventBt.Size = new System.Drawing.Size(283, 112);
             this.eventBt.TabIndex = 0;
             this.eventBt.Text = "Events";
             this.eventBt.UseVisualStyleBackColor = true;
+            this.eventBt.Click += new System.EventHandler(this.eventBt_Click);
             // 
             // orderBt
             // 
-            this.orderBt.Location = new System.Drawing.Point(479, 34);
+            this.orderBt.Location = new System.Drawing.Point(264, 263);
             this.orderBt.Name = "orderBt";
             this.orderBt.Size = new System.Drawing.Size(283, 112);
             this.orderBt.TabIndex = 1;

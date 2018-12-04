@@ -34,13 +34,19 @@ namespace ETicketDesktopClient
 
         private void searchBt_Click(object sender, EventArgs e)
         {
+            GetGridData();
+        }
+
+        public void GetGridData()
+        {
             String Username = usernameTb.Text;
             var orders = new BindingList<Order>(findOrders(Username));
             if (orders.Count > 0)
             {
                 ordersGrid.DataSource = orders;
+                ordersGrid.Columns["TotalPrice"].DefaultCellStyle.Format = "0.00##";
                 ordersGrid.ReadOnly = true;
-                ordersGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                ordersGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 ordersGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 ordersGrid.ClearSelection();
                 ordersGrid.MultiSelect = false;
@@ -57,18 +63,23 @@ namespace ETicketDesktopClient
             if (!string.IsNullOrEmpty(orderId))
             {
                 int id = Convert.ToInt32(orderId);
-                //this.Close();
-                //thread = new Thread(OpenNewWindow(null, id));
-                //thread.SetApartmentState(ApartmentState.STA);
-                //thread.Start();
                 CurrentOrder co = new CurrentOrder(id);
                 co.ShowDialog();
+                GetGridData();
             }
         }
 
-        //private void OpenNewWindow(object obj, int id)
-        //{
-        //    Application.Run(new CurrentOrder(id));
-        //}
+        private void backBt_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            thread = new Thread(OpenAdminPanelWindow);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void OpenAdminPanelWindow(object obj)
+        {
+            Application.Run(new AdminPanel());
+        }
     }
 }

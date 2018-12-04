@@ -15,6 +15,7 @@ namespace ETicketDesktopClient
     public partial class MainWindow : Form
     {
         Thread thread;
+        string username;
         public MainWindow()
         {
             InitializeComponent();
@@ -41,7 +42,7 @@ namespace ETicketDesktopClient
                 {
                     ETicketServiceClient.AdminInfo adminInfo = adminClient.GetAdminInfo(Username);
                     string passwordhashed = adminInfo.Password;
-                    string username = adminInfo.Username;
+                    username = adminInfo.Username;
 
                     PasswordHasher hasher = new PasswordHasher();
                     if (hasher.VerifyHashedPassword(passwordhashed, Password) != PasswordVerificationResult.Failed)
@@ -67,7 +68,7 @@ namespace ETicketDesktopClient
         {
             if (Login())
             {
-                MessageBox.Show("Logged In");
+                MessageBox.Show("Welcome "+username);
                 this.Close();
                 thread = new Thread(OpenNewWindow);
                 thread.SetApartmentState(ApartmentState.STA);

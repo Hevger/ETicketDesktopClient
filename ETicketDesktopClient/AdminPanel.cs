@@ -22,14 +22,29 @@ namespace ETicketDesktopClient
         private void orderBt_Click(object sender, EventArgs e)
         {
             this.Close();
-            thread = new Thread(OpenNewWindow);
+            thread = new Thread(OpenOrderWindow);
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
         }
 
-        private void OpenNewWindow(object obj)
+        private void eventBt_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            thread = new Thread(OpenEventWindow);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void OpenOrderWindow(object obj)
         {
             Application.Run(new Orders());
         }
+
+        private void OpenEventWindow(object obj)
+        {
+            Application.Run(new Events());
+        }
+
+       
     }
 }

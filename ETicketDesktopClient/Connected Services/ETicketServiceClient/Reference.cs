@@ -569,10 +569,10 @@ namespace ETicketDesktopClient.ETicketServiceClient {
         System.Threading.Tasks.Task<ETicketDesktopClient.ETicketServiceClient.Event> GetEventAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventService/CreateEvent", ReplyAction="http://tempuri.org/IEventService/CreateEventResponse")]
-        void CreateEvent(ETicketDesktopClient.ETicketServiceClient.Event myEvent);
+        int CreateEvent(ETicketDesktopClient.ETicketServiceClient.Event myEvent);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventService/CreateEvent", ReplyAction="http://tempuri.org/IEventService/CreateEventResponse")]
-        System.Threading.Tasks.Task CreateEventAsync(ETicketDesktopClient.ETicketServiceClient.Event myEvent);
+        System.Threading.Tasks.Task<int> CreateEventAsync(ETicketDesktopClient.ETicketServiceClient.Event myEvent);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventService/DeleteEvent", ReplyAction="http://tempuri.org/IEventService/DeleteEventResponse")]
         void DeleteEvent(int id);
@@ -628,11 +628,11 @@ namespace ETicketDesktopClient.ETicketServiceClient {
             return base.Channel.GetEventAsync(id);
         }
         
-        public void CreateEvent(ETicketDesktopClient.ETicketServiceClient.Event myEvent) {
-            base.Channel.CreateEvent(myEvent);
+        public int CreateEvent(ETicketDesktopClient.ETicketServiceClient.Event myEvent) {
+            return base.Channel.CreateEvent(myEvent);
         }
         
-        public System.Threading.Tasks.Task CreateEventAsync(ETicketDesktopClient.ETicketServiceClient.Event myEvent) {
+        public System.Threading.Tasks.Task<int> CreateEventAsync(ETicketDesktopClient.ETicketServiceClient.Event myEvent) {
             return base.Channel.CreateEventAsync(myEvent);
         }
         

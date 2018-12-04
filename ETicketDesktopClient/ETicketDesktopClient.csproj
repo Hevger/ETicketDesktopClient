@@ -91,11 +91,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="CreateEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateEvent.Designer.cs">
+      <DependentUpon>CreateEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CurrentEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CurrentEvent.Designer.cs">
+      <DependentUpon>CurrentEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="CurrentOrder.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CurrentOrder.Designer.cs">
       <DependentUpon>CurrentOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Events.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Events.Designer.cs">
+      <DependentUpon>Events.cs</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
@@ -111,11 +129,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TicketAndSeat.cs" />
     <EmbeddedResource Include="AdminPanel.resx">
       <DependentUpon>AdminPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CreateEvent.resx">
+      <DependentUpon>CreateEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CurrentEvent.resx">
+      <DependentUpon>CurrentEvent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CurrentOrder.resx">
       <DependentUpon>CurrentOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Events.resx">
+      <DependentUpon>Events.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>

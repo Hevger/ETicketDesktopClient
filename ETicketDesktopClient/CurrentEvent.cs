@@ -64,35 +64,7 @@ namespace ETicketDesktopClient
             dateTb.CustomFormat = "MM/dd/yyyy";
         }
 
-        private void deleteBt_Click(object sender, EventArgs e)
-        {
-            var confirmResult = MessageBox.Show("Are you sure to delete this item ??",
-                                 "Confirm Delete!",
-                                 MessageBoxButtons.YesNo);
-            if (confirmResult == DialogResult.Yes)
-            {
-                // If 'Yes', do something here.
-                using (ETicketServiceClient.EventServiceClient eventClient = new ETicketServiceClient.EventServiceClient())
-                {
-
-                    eventClient.ClientCredentials.UserName.UserName = "ETicket";
-                    eventClient.ClientCredentials.UserName.Password = "ETicketPass";
-
-                    try
-                    {
-                        eventClient.DeleteEvent(eventId);
-                        MessageBox.Show("Event deleted");
-                        this.Close();
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Event not deleted, try again");
-                        throw;
-                    }
-                }
-            }
-        }
-
+   
 
         private bool checkFields()
         {
@@ -192,6 +164,35 @@ namespace ETicketDesktopClient
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void deleteBt_Click_1(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Are you sure to delete this item ??",
+                                "Confirm Delete!",
+                                MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                // If 'Yes', do something here.
+                using (ETicketServiceClient.EventServiceClient eventClient = new ETicketServiceClient.EventServiceClient())
+                {
+
+                    eventClient.ClientCredentials.UserName.UserName = "ETicket";
+                    eventClient.ClientCredentials.UserName.Password = "ETicketPass";
+
+                    try
+                    {
+                        eventClient.DeleteEvent(eventId);
+                        MessageBox.Show("Event deleted");
+                        this.Close();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Event not deleted, try again");
+                        throw;
+                    }
+                }
             }
         }
     }
